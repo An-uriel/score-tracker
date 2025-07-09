@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Score Tracker</title>
+</head>
+<body>
+
+  <h1>🏆 C Game Score Tracker</h1>
+
+  <a href="/leaderboard">View Leaderboard</a>
+
+  <% if (currentUser) { %>
+    <a href="/submit-score">Submit Score</a>
+    <a href="/my-profile">My Profile</a>
+    <a href="/logout">Logout</a>
+
+    <div class="user-info">
+      Logged in as: <strong><%= currentUser.name %></strong>
+    </div>
+  <% } else { %>
+    <a href="/register">Register</a>
+    <a href="/login">Login</a>
+  <% } %>
+
+</body>
+</html>

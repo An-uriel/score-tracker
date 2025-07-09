@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Leaderboard</title>
+</head>
+<body>
+
+  <h1>🏆 Leaderboard</h1>
+  <table>
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Player</th>
+        <th>Score</th>
+        <th>Level</th>
+        <th>Played At</th>
+        <th>Profile</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% scores.forEach((score, index) => { %>
+        <tr>
+          <td><%= index + 1 %></td>
+          <td><%= score.name %></td>
+          <td><%= score.score %></td>
+          <td><%= score.level %></td>
+          <td><%= new Date(score.played_at).toLocaleString() %></td>
+          <td><a href="/user/<%= score.user_id %>">View</a></td>
+        </tr>
+      <% }) %>
+    </tbody>
+  </table>
+
+  <p style="text-align:center; margin-top:20px;">
+    <a href="/">⬅ Back to Home</a>
+  </p>
+
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>User Profile</title>
+</head>
+<body>
+  <h1>User Score History</h1>
+  <h3>User: <%= user.name %> (ID: <%= user.id %>)</h3>
+
+  <table border="1" cellpadding="10">
+    <tr>
+      <th>Score</th>
+      <th>Level</th>
+      <th>Played At</th>
+    </tr>
+    <% sessions.forEach(score => { %>
+      <tr>
+        <td><%= score.score %></td>
+        <td><%= score.level %></td>
+        <td><%= new Date(score.played_at).toLocaleString() %></td>
+      </tr>
+    <% }); %>
+  </table>
+
+  <p><a href="/">⬅ Back to Home</a></p>
+</body>
+</html>
