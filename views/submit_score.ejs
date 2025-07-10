@@ -10,15 +10,21 @@
 
     <p>Logged in as: <strong><%= user.name %></strong></p>
 
-    <form method="POST" action="/submit-score">
-      <label for="score">Score:</label>
-      <input type="number" name="score" required>
+<form method="POST" action="/submit-score">
+  <label for="score">Score (Max: 20):</label>
+  <input type="number" name="score" id="score" required min="0" max="20">
 
-      <label for="level">Level (easy/medium/hard):</label>
-      <input type="text" name="level" required>
+  <label for="level">Select Difficulty:</label>
+  <select name="level" id="level" required>
+    <option value="">-- Choose Difficulty --</option>
+    <option value="easy">🟢 Easy</option>
+    <option value="medium">🟡 Medium</option>
+    <option value="hard">🔴 Hard</option>
+  </select>
 
-      <button type="submit">Submit</button>
-    </form>
+  <button type="submit">Submit</button>
+</form>
+
   </div>
 </body>
 </html>
