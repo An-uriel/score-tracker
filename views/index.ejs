@@ -2,25 +2,48 @@
 <html>
 <head>
   <title>Score Tracker</title>
+  <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
-
-  <h1>🏆 C Game Score Tracker</h1>
-
-  <a href="/leaderboard">View Leaderboard</a>
-
-  <% if (currentUser) { %>
-    <a href="/submit-score">Submit Score</a>
-    <a href="/my-profile">My Profile</a>
-    <a href="/logout">Logout</a>
-
-    <div class="user-info">
-      Logged in as: <strong><%= currentUser.name %></strong>
+  <!-- Navigation Bar -->
+  <div class="nav-wrapper">
+    <div class="logo">C Game Tracker</div>
+    <div class="nav-links">
+      <% if (currentUser) { %>
+        <a href="/submit-score">Submit Score</a>
+        <a href="/my-profile">My Profile</a>
+        <a href="/logout">Logout</a>
+      <% } else { %>
+        <a href="/register">Register</a>
+        <a href="/login">Login</a>
+      <% } %>
     </div>
-  <% } else { %>
-    <a href="/register">Register</a>
-    <a href="/login">Login</a>
-  <% } %>
+  </div>
 
+  <!-- Hero Section -->
+  <div class="hero">
+    <div>
+      <h1>🏆 Welcome to C Game Score Tracker</h1>
+      <p>Track your scores. Compete with others. Be the best.</p>
+    </div>
+  </div>
+
+  <!-- Message Section -->
+  <div class="container">
+    <div class="message-box">
+      <p><a href="/leaderboard" class="btn">View Leaderboard</a></p>
+
+      <% if (currentUser) { %>
+        <p>Logged in as: <strong><%= currentUser.name %></strong></p>
+      <% } else { %>
+        <p><strong>You are not logged in.</strong> Register or log in to start tracking your scores.</p>
+      <% } %>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    &copy; 2025 C Game Score Tracker. All rights reserved.
+  </footer>
 </body>
 </html>

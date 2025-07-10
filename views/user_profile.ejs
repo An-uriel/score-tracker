@@ -2,6 +2,7 @@
 <html>
 <head>
   <title>User Profile</title>
+    <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
   <h1>User Score History</h1>
@@ -12,12 +13,19 @@
       <th>Score</th>
       <th>Level</th>
       <th>Played At</th>
+      <th>Action</th>
     </tr>
     <% sessions.forEach(score => { %>
       <tr>
         <td><%= score.score %></td>
         <td><%= score.level %></td>
         <td><%= new Date(score.played_at).toLocaleString() %></td>
+        <td>
+          <!-- Make sure this form method is POST -->
+          <form method="POST" action="/delete-score/<%= score.id %>" style="display:inline;">
+            <button type="submit">Delete</button>
+          </form>
+        </td>
       </tr>
     <% }); %>
   </table>

@@ -1,19 +1,24 @@
 <!DOCTYPE html>
 <html>
-<head><title>Submit Score</title></head>
+<head>
+  <title>Submit Score</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
 <body>
-  <h1>Submit Score</h1>
+  <div class="container">
+    <h1>Submit Score</h1>
 
-  <p>Logged in as: <strong><%= user.name %></strong></p>
+    <p>Logged in as: <strong><%= user.name %></strong></p>
 
-  <form method="POST" action="/submit-score">
-    <label for="score">Score:</label>
-    <input type="number" name="score" required><br><br>
+    <form method="POST" action="/submit-score">
+      <label for="score">Score:</label>
+      <input type="number" name="score" required>
 
-    <label for="level">Level (easy/medium/hard):</label>
-    <input type="text" name="level" required><br><br>
+      <label for="level">Level (easy/medium/hard):</label>
+      <input type="text" name="level" required>
 
-    <button type="submit">Submit</button>
-  </form>
+      <button type="submit">Submit</button>
+    </form>
+  </div>
 </body>
 </html>

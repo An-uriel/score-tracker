@@ -1,0 +1,109 @@
+:root {
+  --main-color: #ffd700;
+  --dark-bg: #1b1b1b;
+  --box-bg: #262626;
+  --text-color: #fff;
+  --accent-color: #ff6f00;
+}
+
+body {
+  font-family: 'Cairo', sans-serif;
+  background: var(--dark-bg);
+  color: var(--text-color);
+  margin: 0;
+  padding: 0;
+}
+
+/* Title */
+h1 {
+  text-align: center;
+  margin-top: 40px;
+  margin-bottom: 30px;
+  font-size: 3rem;
+  color: var(--main-color);
+  text-shadow: 2px 2px 5px #000;
+}
+
+/* Wrapper to hold 3 tables side by side */
+.leaderboard-wrapper {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+  padding: 30px;
+}
+
+/* Each difficulty box */
+.leaderboard-box {
+  background-color: var(--box-bg);
+  padding: 30px;
+  border-radius: 14px;
+  width: 360px;
+  box-shadow: 0 0 15px rgba(255, 215, 0, 0.4);
+}
+
+.leaderboard-box h2 {
+  font-size: 1.8rem;
+  margin-bottom: 15px;
+  text-align: center;
+  color: var(--main-color);
+  text-shadow: 1px 1px 2px #000;
+}
+
+/* Table styles */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+  font-size: 1.1rem;
+}
+
+th, td {
+  padding: 16px 12px;
+  text-align: center;
+}
+
+th {
+  background-color: var(--main-color);
+  color: #000;
+  font-weight: bold;
+  font-size: 1.1rem;
+  border-radius: 4px;
+}
+
+tr:nth-child(even) {
+  background-color: #2e2e2e;
+}
+
+tr:nth-child(odd) {
+  background-color: #3a3a3a;
+}
+
+tr:hover {
+  background-color: #444;
+}
+
+a {
+  color: var(--main-color);
+  text-decoration: underline;
+  font-weight: bold;
+}
+
+a:hover {
+  color: var(--accent-color);
+}
+
+/* Return home link */
+.return-home {
+  display: block;
+  text-align: center;
+  margin-top: 40px;
+  font-weight: bold;
+  font-size: 1.3rem;
+  color: var(--main-color);
+  text-decoration: none;
+}
+
+.return-home:hover {
+  color: var(--accent-color);
+}
