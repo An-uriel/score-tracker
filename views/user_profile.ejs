@@ -5,31 +5,59 @@
     <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
-  <h1>User Score History</h1>
-  <h3>User: <%= user.name %> (ID: <%= user.id %>)</h3>
 
-  <table border="1" cellpadding="10">
-    <tr>
-      <th>Score</th>
-      <th>Level</th>
-      <th>Played At</th>
-      <th>Action</th>
-    </tr>
-    <% sessions.forEach(score => { %>
-      <tr>
-        <td><%= score.score %></td>
-        <td><%= score.level %></td>
-        <td><%= new Date(score.played_at).toLocaleString() %></td>
-        <td>
-          <!-- Make sure this form method is POST -->
-          <form method="POST" action="/delete-score/<%= score.id %>" style="display:inline;">
-            <button type="submit">Delete</button>
-          </form>
-        </td>
-      </tr>
-    <% }); %>
-  </table>
+  <!-- HEADER -->
+  <div class="nav-wrapper">
+    <div class="logo">🔓Room Treasure Unlock</div>
+    <div class="nav-links">
+      <a href="/">Home</a>
+      <a href="/leaderboard">Leaderboard</a>
+      <a href="/submit-score">Submit Score</a>
+      <a href="/logout">Logout</a>
+    </div>
+  </div>
 
-  <p><a href="/">⬅ Back to Home</a></p>
+  <!-- MAIN CONTAINER -->
+  <div class="container">
+    <h1>📜 User Score History</h1>
+    <h3>User: <%= user.name %> (ID: <%= user.id %>)</h3>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Score</th>
+          <th>Level</th>
+          <th>Played At</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% if (sessions.length === 0) { %>
+          <tr>
+            <td colspan="4">No score history found.</td>
+          </tr>
+        <% } else { %>
+          <% sessions.forEach(score => { %>
+            <tr>
+              <td><%= score.score %></td>
+              <td><%= score.level %></td>
+              <td><%= new Date(score.played_at).toLocaleString() %></td>
+              <td>
+                <form method="POST" action="/delete-score/<%= score.id %>">
+                  <button type="submit">Delete</button>
+                </form>
+              </td>
+            </tr>
+          <% }); %>
+        <% } %>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    &copy; 2025 Treasure Unlock. All rights reserved.
+  </footer>
+
 </body>
 </html>

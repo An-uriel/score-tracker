@@ -3,11 +3,13 @@
 <head>
   <title>Score Tracker</title>
   <link rel="stylesheet" href="/css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
+
 </head>
 <body>
   <!-- Navigation Bar -->
   <div class="nav-wrapper">
-    <div class="logo">C Game Tracker</div>
+    <div class="logo">🕵C Game Score Tracker</div>
     <div class="nav-links">
       <% if (currentUser) { %>
         <a href="/submit-score">Submit Score</a>
@@ -23,20 +25,26 @@
   <!-- Hero Section -->
   <div class="hero">
     <div>
-      <h1>🏆 Welcome to C Game Score Tracker</h1>
-      <p>Track your scores. Compete with others. Be the best.</p>
+      <h1> 🔐 Welcome to Room Treasure Unlock 🔐</h1>
+    <div class="hero-container">
+      <p>Track your scores. Compete with others. Be the best!</p>
+    </div>
     </div>
   </div>
 
   <!-- Message Section -->
   <div class="container">
     <div class="message-box">
-      <p><a href="/leaderboard" class="btn">View Leaderboard</a></p>
+      <p><a href="/leaderboard" class="btn">🏆 View Leaderboard</a></p>
 
       <% if (currentUser) { %>
-        <p>Logged in as: <strong><%= currentUser.name %></strong></p>
+        <p class="welcome-message">Bonjour! <strong><%= currentUser.name %></strong></p>
       <% } else { %>
-        <p><strong>You are not logged in.</strong> Register or log in to start tracking your scores.</p>
+        <p class="login-warning">
+          <strong>You are not logged in.</strong><br>
+           Register or log in to start tracking your scores.
+        </p>
+
       <% } %>
     </div>
   </div>

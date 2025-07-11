@@ -5,26 +5,45 @@
   <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
-  <div class="container">
-    <h1>Submit Score</h1>
 
-    <p>Logged in as: <strong><%= user.name %></strong></p>
-
-<form method="POST" action="/submit-score">
-  <label for="score">Score (Max: 20):</label>
-  <input type="number" name="score" id="score" required min="0" max="20">
-
-  <label for="level">Select Difficulty:</label>
-  <select name="level" id="level" required>
-    <option value="">-- Choose Difficulty --</option>
-    <option value="easy">🟢 Easy</option>
-    <option value="medium">🟡 Medium</option>
-    <option value="hard">🔴 Hard</option>
-  </select>
-
-  <button type="submit">Submit</button>
-</form>
-
+  <!-- HEADER -->
+  <div class="nav-wrapper">
+    <div class="logo">🔓Room Treasure Unlock</div>
+    <div class="nav-links">
+      <a href="/">Home</a>
+      <a href="/leaderboard">Leaderboard</a>
+      <a href="/logout">Logout</a>
+    </div>
   </div>
+
+  <!-- FORM CENTERED -->
+  <main class="main-content">
+    <div class="container">
+      <h1>📤 Submit Score</h1>
+
+      <p>Make it to the top! <strong><%= user.name %></strong></p>
+
+      <form method="POST" action="/submit-score">
+        <label for="score">Score (Max: 20):</label>
+        <input type="number" name="score" id="score" required min="0" max="20">
+
+        <label for="level">Select Level:</label>
+        <select name="level" id="level" required>
+          <option value="">-- Choose Level --</option>
+          <option value="easy">🟢 Easy</option>
+          <option value="medium">🟡 Medium</option>
+          <option value="hard">🔴 Hard</option>
+        </select>
+
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    &copy; 2025 Treasure Unlock. All rights reserved.
+  </footer>
+
 </body>
 </html>

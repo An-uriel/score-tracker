@@ -10,7 +10,7 @@ router.get('/submit-score', (req, res) => {
   res.render('submit_score', { user: req.session.user });
 });
 
-// ✅ Submit score (overwrite if same difficulty)
+// ✅ Submit score (allows multiple entries)
 router.post('/submit-score', (req, res) => {
   if (!req.session.user) {
     return res.status(403).send('Unauthorized');
@@ -19,45 +19,24 @@ router.post('/submit-score', (req, res) => {
   const { score, level } = req.body;
   const user_id = req.session.user.id;
 
-  // Check if the user already has a score for this level
   db.query(
-    'SELECT id FROM scores WHERE user_id = ? AND level = ?',
-    [user_id, level],
-    (err, result) => {
-      if (err) return res.status(500).send('Error checking existing score.');
-
-      const insertNewScore = () => {
-        db.query(
-          'INSERT INTO scores (user_id, score, level) VALUES (?, ?, ?)',
-          [user_id, score, level],
-          (insertErr) => {
-            if (insertErr) return res.status(500).send('Failed to insert new score.');
-            res.redirect('/leaderboard');
-          }
-        );
-      };
-
-      // If exists, delete old score first
-      if (result.length > 0) {
-        const existingScoreId = result[0].id;
-        db.query('DELETE FROM scores WHERE id = ?', [existingScoreId], (deleteErr) => {
-          if (deleteErr) return res.status(500).send('Failed to delete old score.');
-          insertNewScore();
-        });
-      } else {
-        insertNewScore();
-      }
+    'INSERT INTO scores (user_id, score, level) VALUES (?, ?, ?)',
+    [user_id, score, level],
+    (err) => {
+      if (err) return res.status(500).send('Failed to submit score.');
+      res.redirect('/leaderboard');
     }
   );
 });
 
-// ✅ Leaderboard with three difficulty columns
+// ✅ Leaderboard showing each user's highest score per difficulty
 router.get('/leaderboard', (req, res) => {
   const query = `
-    SELECT u.id AS user_id, u.name, s.score, s.level, s.played_at
+    SELECT u.id AS user_id, u.name, s.level, MAX(s.score) AS score
     FROM scores s
     JOIN users u ON s.user_id = u.id
-    ORDER BY s.level, s.score DESC
+    GROUP BY s.level, s.user_id
+    ORDER BY s.level, score DESC
   `;
 
   db.query(query, (err, results) => {

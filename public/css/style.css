@@ -20,6 +20,7 @@ body {
 
     h1 {
       font-size: 2.5em;
+      font-style: italic;
       margin-bottom: 20px;
       color: #ffdd57;
       text-shadow: 1px 1px 2px #000;
@@ -43,15 +44,18 @@ body {
     }
 
     button {
-      background-color: #ffdd57;
-      color: #000;
-      border: none;
-      padding: 10px 20px;
-      font-size: 1em;
-      border-radius: 6px;
-      cursor: pointer;
-      transition: background 0.3s;
-    }
+  width: 90%; /* Match the input fields */
+  background-color: #ffdd57;
+  color: #000;
+  border: none;
+  padding: 10px;
+  font-size: 1em;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s;
+  margin: 20px 0 0; /* remove left/right margin, adjust spacing */
+}
+
 
     button:hover {
       background-color: #fbc02d;
@@ -194,28 +198,84 @@ body {
       color: #fff;
     }
     .hero h1 {
-      font-size: 3rem;
+      font-size: 4.5em;
+      font-family:'Dancing script', cursive;
       text-shadow: 2px 2px 5px #000;
     }
-    .hero p {
-      margin-top: 10px;
-      font-size: 1.2rem;
-    }
+   
+    .hero-container {
+  background-color: rgba(255, 255, 255, 0.1); /* semi-transparent background */
+  padding: 15px 20px;
+  border-radius: 12px;
+  display: inline-block;
+  margin-top: 15px;
+  backdrop-filter: blur(5px); /* optional: glassy effect */
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.hero p {
+  font-size: 1.8em;
+  color: rgba(255, 255, 255, 0.7); /* white with 70% opacity */
+  font-weight: bold;
+  font-style: italic;
+  text-shadow: 1px 1px 2px #000;
+  animation: slideSide 5s infinite alternate ease-in-out;
+  display: inline-block;
+  margin: 0;
+}
+
+/* Animation */
+@keyframes slideSide {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(30px);
+  }
+}
+
+
     .container {
       max-width: 1000px;
       margin: 40px auto;
       padding: 20px;
       background: var(--box-bg);
       border-radius: 10px;
-      box-shadow: 0 0 10px rgba(255, 215, 0, 0.2);
+      box-shadow: 0 0 10px rgba(234, 214, 102, 0.957);
     }
-    .message-box {
-      margin: 20px 0;
-      padding: 15px;
-      background-color: #333;
-      border-left: 5px solid var(--main-color);
-      font-style: italic;
-    }
+      .message-box {
+  margin: 20px 0;
+  padding: 15px 20px;
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.6), rgba(255, 255, 0, 0.3));
+  border-left: 5px solid var(--main-color);
+  font-style: italic;
+  color: white;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+  backdrop-filter: blur(4px); /* Optional: adds glass-like effect */
+}
+
+    .welcome-message {
+  background-color: rgba(255, 215, 0, 0.1); /* soft gold */
+  border: 1px solid rgba(255, 215, 0, 0.3);
+  color: var(--text-color); /* fallback to white */
+  font-weight: 600;
+  padding: 12px 20px;
+  margin: 20px auto;
+  max-width: 600px;
+  text-align: center;
+  border-radius: 10px;
+  backdrop-filter: blur(4px); /* optional glass effect */
+  box-shadow: 0 0 10px rgba(255, 215, 0, 0.2);
+  font-size: 2em;
+}
+
+.welcome-message strong {
+  color: var(--main-color); /* highlight name with your main color */
+}
+
+
+
     .btn {
       display: inline-block;
       margin: 10px;
@@ -230,6 +290,28 @@ body {
     .btn:hover {
       background-color: var(--accent-color);
     }
+
+.login-warning {
+  background-color: rgba(255, 0, 0, 0.1); /* light red translucent */
+  color: rgba(255, 255, 255, 0.85); /* slightly transparent white */
+  border: 1px solid rgba(255, 0, 0, 0.4); /* soft red border */
+  padding: 15px 20px;
+  border-radius: 10px;
+  font-size: 1.1rem;
+  line-height: 1.5;
+  text-align: center;
+  margin: 20px auto;
+  max-width: 500px;
+  backdrop-filter: blur(4px); /* optional glass effect */
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+}
+
+.login-warning strong {
+  font-weight: 700;
+  color: rgba(231, 25, 10, 0.95); /* bright emphasis */
+}
+
+
     footer {
       text-align: center;
       padding: 20px;
@@ -242,109 +324,186 @@ body {
 
 /* leaderboard-page */
 :root {
-      --main-color: #ffd700;
-      --dark-bg: #1b1b1b;
-      --box-bg: #262626;
-      --text-color: #fff;
-      --accent-color: #ff6f00;
-    }
+  --main-color: #ffd700;
+  --dark-bg: #1b1b1b;
+  --box-bg: #262626;
+  --text-color: #fff;
+  --accent-color: #ff6f00;
+}
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-    body {
-      font-family: 'Cairo', sans-serif;
-      background: var(--dark-bg);
-      color: var(--text-color);
-    }
+body {
+  font-family: 'Cairo', sans-serif;
+  background: var(--dark-bg);
+  color: var(--text-color);
+}
+
+.nav-wrapper {
+  background: #000;
+  padding: 15px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.logo {
+  font-size: 1.8rem;
+  font-weight: 900;
+  color: var(--main-color);
+}
+
+.nav-links a {
+  margin-left: 20px;
+  color: var(--text-color);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.nav-links a:hover {
+  color: var(--main-color);
+}
+
+.hero {
+  background: url('https://i.postimg.cc/3x3QzSGq/treasure-map.jpg') no-repeat center center/cover;
+  height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #fff;
+}
+
+.hero-container {
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 15px 20px;
+  border-radius: 12px;
+  display: inline-block;
+  margin-top: 15px;
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.hero h1 {
+  font-size: 4.5em;
+  font-family: 'Dancing script', cursive;
+  text-shadow: 2px 2px 5px #000;
+}
+
+.hero p {
+  font-size: 1.8em;
+  color: rgba(255, 255, 255, 0.7);
+  font-weight: bold;
+  font-style: italic;
+  text-shadow: 1px 1px 2px #000;
+  animation: slideSide 5s infinite alternate ease-in-out;
+  display: inline-block;
+  margin: 0;
+}
+
+@keyframes slideSide {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(30px); }
+}
+
+.container {
+  max-width: 1000px;
+  margin: 40px auto;
+  padding: 20px;
+  background: var(--box-bg);
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(234, 214, 102, 0.957);
+}
+
+/* Make leaderboard sections in one row */
+.leaderboard-wrapper {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 20px;
+  justify-content: space-between;
+  overflow-x: auto;
+  width: 100vw; /* Full viewport width */
+  padding: 20px; /* Add some padding if needed */
+  box-sizing: border-box;
+  background: var(--box-bg); /* Optional: match container background */
+  margin: 0 auto;
+}
+
+.difficulty-box {
+  flex: 1;
+  background-color: rgba(255, 255, 255, 0.05);
+  padding: 15px;
+  border-radius: 10px;
+  backdrop-filter: blur(3px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  min-width: 0; /* important for shrinking */
+}
 
 
-    .logo {
-      font-size: 1.8rem;
-      font-weight: 900;
-      color: var(--main-color);
-    }
+.difficulty-box h2 {
+  color: var(--main-color);
+  text-align: center;
+  margin-bottom: 10px;
+}
 
-    .nav-links a {
-      margin-left: 20px;
-      color: var(--text-color);
-      font-weight: 600;
-      text-decoration: none;
-    }
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
 
-    .nav-links a:hover {
-      color: var(--main-color);
-    }
+th, td {
+  padding: 12px 15px;
+  text-align: center;
+}
 
-    .container {
-      max-width: 1000px;
-      margin: 40px auto;
-      padding: 20px;
-      background: var(--box-bg);
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(255, 215, 0, 0.2);
-    }
+thead {
+  background: var(--main-color);
+  color: #000;
+}
 
-    h1 {
-      text-align: center;
-      margin-bottom: 30px;
-      color: var(--main-color);
-    }
+tbody tr:nth-child(odd) {
+  background: #333;
+}
 
-    table {
-      width: 100%;
-      border-collapse: collapse;
-    }
+tbody tr:nth-child(even) {
+  background: #444;
+}
 
-    th, td {
-      padding: 12px 15px;
-      text-align: center;
-    }
+tbody tr:hover {
+  background: #555;
+}
 
-    thead {
-      background: var(--main-color);
-      color: #000;
-    }
+a.btn {
+  display: inline-block;
+  margin: 20px auto 0;
+  padding: 10px 20px;
+  background: var(--main-color);
+  color: #000;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 6px;
+  transition: background 0.3s ease;
+}
 
-    tbody tr:nth-child(odd) {
-      background: #333;
-    }
+a.btn:hover {
+  background: var(--accent-color);
+}
 
-    tbody tr:nth-child(even) {
-      background: #444;
-    }
-
-    tbody tr:hover {
-      background: #555;
-    }
-
-    a.btn {
-      display: inline-block;
-      margin: 20px auto 0;
-      padding: 10px 20px;
-      background: var(--main-color);
-      color: #000;
-      text-decoration: none;
-      font-weight: bold;
-      border-radius: 6px;
-      transition: background 0.3s ease;
-    }
-
-    a.btn:hover {
-      background: var(--accent-color);
-    }
-
-    footer {
-      text-align: center;
-      padding: 20px;
-      background-color: #111;
-      color: #aaa;
-      font-size: 0.9rem;
-      margin-top: 40px;
-    }
+footer {
+  text-align: center;
+  padding: 20px;
+  background-color: #111;
+  color: #aaa;
+  font-size: 0.9rem;
+  margin-top: 40px;
+}
 
 
 /*submit_score-page */
@@ -363,9 +522,13 @@ body {
     }
 
     body {
-      font-family: 'Cairo', sans-serif;
-      background: var(--dark-bg);
+      background: url("https://i.postimg.cc/3x3QzSGq/treasure-map.jpg") no-repeat center center fixed;
+      background-size: cover;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       color: var(--text-color);
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
     }
 
     .nav-wrapper {
@@ -393,13 +556,22 @@ body {
       color: var(--main-color);
     }
 
+    .main-content {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 40px 20px;
+    }
+
     .container {
       max-width: 600px;
-      margin: 40px auto;
+      width: 100%;
       background: var(--box-bg);
       padding: 30px;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(255, 215, 0, 0.2);
+      border-radius: 12px;
+      box-shadow: 0 0 15px rgba(255, 215, 0, 0.25);
+      backdrop-filter: blur(6px);
     }
 
     h1 {
@@ -410,28 +582,33 @@ body {
 
     p {
       text-align: center;
-      margin-bottom: 30px;
+      margin-bottom: 25px;
       font-size: 1.1rem;
     }
 
     form label {
       display: block;
-      margin-bottom: 5px;
+      margin-bottom: 6px;
       font-weight: 600;
     }
 
     input[type="number"],
-    input[type="text"] {
+    select {
       width: 100%;
       padding: 12px;
       margin-bottom: 20px;
       border-radius: 6px;
       border: none;
       font-size: 1rem;
+      background: #fff;
+      color: #000;
+    }
+
+    select option {
+      color: #000;
     }
 
     button {
-      display: block;
       width: 100%;
       padding: 12px;
       background-color: var(--main-color);
@@ -454,7 +631,6 @@ body {
       background-color: #111;
       color: #aaa;
       font-size: 0.9rem;
-      margin-top: 40px;
     }
 
 /*user_profile-page */
@@ -476,6 +652,9 @@ body {
       font-family: 'Cairo', sans-serif;
       background: var(--dark-bg);
       color: var(--text-color);
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
     }
 
     .nav-wrapper {
@@ -509,12 +688,13 @@ body {
       padding: 30px;
       background: var(--box-bg);
       border-radius: 10px;
-      box-shadow: 0 0 10px rgba(255, 215, 0, 0.2);
+      box-shadow: 0 0 15px rgba(255, 215, 0, 0.2);
+      flex-grow: 1;
     }
 
     h1 {
       text-align: center;
-      margin-bottom: 20px;
+      margin-bottom: 15px;
       color: var(--main-color);
     }
 
@@ -528,8 +708,7 @@ body {
       width: 100%;
       border-collapse: collapse;
       background-color: #333;
-      color: var(--text-color);
-      border-radius: 6px;
+      border-radius: 8px;
       overflow: hidden;
     }
 
@@ -552,6 +731,25 @@ body {
       background-color: #444;
     }
 
+    form {
+      display: inline;
+    }
+
+    button {
+      padding: 6px 12px;
+      border: none;
+      border-radius: 5px;
+      background-color: var(--accent-color);
+      color: #fff;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #e65c00;
+    }
+
     .back-link {
       display: block;
       text-align: center;
@@ -571,5 +769,4 @@ body {
       background-color: #111;
       color: #aaa;
       font-size: 0.9rem;
-      margin-top: 40px;
     }
